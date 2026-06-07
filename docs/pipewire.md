@@ -164,6 +164,8 @@ X-GNOME-Autostart-enabled=true
 
 ## Overwitch / Overbridge
 
+[Overwitch](https://github.com/dagargo/overwitch) is an open-source implementation of Elektron's Overbridge protocol for Linux. It streams individual audio channels from Elektron hardware (Digitakt, Digitone, Analog series, etc.) over USB and presents them as JACK clients, giving you per-track audio directly into your DAW. Elektron doesn't officially support Linux — Overwitch is a community effort.
+
 Overwitch connects to JACK. With the ldconfig shim in place (Step 4), it will automatically connect to PipeWire's JACK interface. Just launch Overwitch normally — no special configuration needed.
 
 If Overwitch silently fails to mount your device, check the journal:

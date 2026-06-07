@@ -86,7 +86,7 @@ QjackCtl's patchbay lets you save and restore port connections. Once JACK and yo
 
 ## Overwitch / Overbridge
 
-Overwitch connects as a JACK client. It should connect automatically once JACK is running. If it fails silently, check that JACK is fully started before launching Overwitch, and verify with:
+[Overwitch](https://github.com/dagargo/overwitch) is an open-source implementation of Elektron's Overbridge protocol for Linux, enabling per-track audio streaming from Elektron hardware (Digitakt, Digitone, Analog series, etc.) over USB. It connects as a JACK client. It should connect automatically once JACK is running. If it fails silently, check that JACK is fully started before launching Overwitch, and verify with:
 
 ```bash
 jack_lsp | grep -i digitakt

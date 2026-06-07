@@ -2,6 +2,19 @@
 
 A practical guide and reference for running a professional audio production environment on Linux — covering the history of Linux audio, how the stack works, DAWs, audio interfaces, USB hardware synthesizers, and general system audio all working simultaneously without conflicts.
 
+## Use Case
+
+The setup this guide is built around: a fully functional Linux workstation used for music production, where the following all need to work at the same time without conflicts:
+
+- **Browser and system audio** — YouTube, streaming, desktop sounds
+- **REAPER** — primary DAW, recording and mixing
+- **Multi-channel USB audio interface** — tested with Mackie Onyx24 and Tascam Model 12, both class-compliant USB
+- **Elektron hardware synthesizers** (Digitakt II) via [Overwitch](https://github.com/dagargo/overwitch) — an open-source implementation of Elektron's Overbridge protocol that streams individual audio channels from Elektron devices over USB and presents them as JACK clients
+
+The Overwitch piece is what makes this setup non-trivial. Overwitch is a JACK client, which means it needs a running JACK server (or a JACK-compatible interface like PipeWire). Getting Overwitch, a multi-channel interface, REAPER, and system audio all playing nicely on the same machine is the core problem this guide solves.
+
+Overwitch is not affiliated with this guide — it's an independent open-source project. Go give it a star: [github.com/dagargo/overwitch](https://github.com/dagargo/overwitch).
+
 ## The Problem
 
 Linux audio has historically forced you to choose: either run JACK for your DAW with low latency, or run PulseAudio for system audio (browser, media players, etc.). Getting both at the same time reliably is non-trivial, and adding USB audio hardware like Elektron devices via Overwitch makes it harder still.
@@ -49,12 +62,12 @@ New to Linux audio? Start here:
 
 This guide was developed with:
 
-- USB class-compliant multi-channel audio interface
-- Elektron Digitakt II via Overwitch (USB Overbridge protocol)
-- Ubuntu 24.04, Linux 6.17, x86-64
-- REAPER as the primary DAW
+- **Audio interfaces:** Mackie Onyx24, Tascam Model 12 (both USB class-compliant, no drivers needed)
+- **Synthesizers:** Elektron Digitakt II via [Overwitch](https://github.com/dagargo/overwitch)
+- **DAW:** REAPER
+- **OS:** Ubuntu 24.04, Linux 6.17, x86-64
 
-The principles apply broadly to any USB audio interface and any JACK-based DAW.
+The principles apply broadly to any USB class-compliant audio interface and any JACK-based DAW. If your interface works with `aplay -l`, it'll work with this guide.
 
 ## Repository Structure
 
